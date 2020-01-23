@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.chatty"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -12,8 +12,12 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <uses-feature android:name="android.hardware.camera"
+    <uses-feature
+        android:name="android.hardware.camera"
         android:required="true" />
     <uses-feature
         android:name="android.hardware.camera.autofocus"
@@ -23,55 +27,54 @@
         android:allowBackup="true"
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
-        android:theme="@style/CustomActionBarTheme" >
+        android:theme="@style/CustomActionBarTheme">
+        <activity android:name=".MainActivityHospital"
+            android:theme="@style/AppBaseTheme"></activity>
+
         <service
-            android:name="com.android.chatty.MessageService"
+            android:name=".MessageService"
             android:enabled="true" />
 
         <activity
-            android:name="com.android.chatty.MainActivity"
-            android:label="@string/app_name" >
+            android:name=".MainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name="com.android.chatty.ChatActivity"
+            android:name=".ChatActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_chat"
-            android:launchMode="singleTop" >
-        </activity>
+            android:launchMode="singleTop"></activity>
         <activity
-            android:name="com.android.chatty.ViewImageActivity"
+            android:name=".ViewImageActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_view_image"
-            android:parentActivityName="com.android.chatty.ChatActivity"
-            android:theme="@style/FullscreenTheme" >
-        </activity>
+            android:parentActivityName=".ChatActivity"
+            android:theme="@style/FullscreenTheme"></activity>
         <activity
-            android:name="com.android.chatty.RecordAudioActivity"
+            android:name=".RecordAudioActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_record_audio"
-            android:parentActivityName="com.android.chatty.ChatActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize" >
-        </activity>
+            android:parentActivityName=".ChatActivity"></activity>
         <activity
-            android:name="com.android.chatty.PlayVideoActivity"
-            android:label="@string/title_activity_play_video"
-            android:configChanges="orientation|keyboardHidden|screenSize" >
-        </activity>
+            android:name=".PlayVideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_play_video"></activity>
         <activity
-            android:name="com.android.chatty.FilePickerActivity"
+            android:name=".FilePickerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_file_picker"
-            android:parentActivityName="com.android.chatty.ChatActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize" >
-        </activity>
+            android:parentActivityName=".ChatActivity"></activity>
         <activity
-            android:name="com.android.chatty.WebViewActivity"
+            android:name=".WebViewActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_web_view"
-            android:parentActivityName="com.android.chatty.ChatActivity" >
+            android:parentActivityName=".ChatActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -82,9 +85,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.android.chatty.DrawingActivity"
-            android:label="@string/title_activity_drawing" >
-        </activity>
+            android:name=".DrawingActivity"
+            android:label="@string/title_activity_drawing"></activity>
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA2D6Kgh3DLGfPpBDcl9expmuJp82bkhQY" />
+
+        <activity android:name=".Medical.MedicalProblems"
+            android:theme="@style/AppBaseTheme"/>
+        <activity android:name=".Medical.RequiredMedicines"
+            android:theme="@style/AppBaseTheme"/>
+        <activity android:name=".Web.WebsiteView"
+            android:theme="@style/AppBaseTheme"/>
+        <activity android:name=".NearbyLocations.GMap.ListHealthCenters"
+            android:theme="@style/AppBaseTheme"/>
+        <activity
+            android:name=".NearbyLocations.GMap.MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:theme="@style/AppBaseTheme"></activity>
     </application>
 
 </manifest>

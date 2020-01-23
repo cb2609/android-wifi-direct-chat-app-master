@@ -13,7 +13,6 @@ import android.net.wifi.p2p.WifiP2pManager;
 import android.net.wifi.p2p.WifiP2pManager.Channel;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
@@ -31,8 +30,6 @@ import com.android.chatty.InitThreads.ServerInit;
 import com.android.chatty.Receivers.WifiDirectBroadcastReceiver;
 import com.android.chatty.util.ActivityUtilities;
 
-import java.util.ArrayList;
-
 /*
  * This activity is the launcher activity. 
  * Once the connection established, the ChatActivity is launched.
@@ -45,7 +42,8 @@ public class MainActivity extends Activity{
 	private static final int PERMISSIONS_REQUEST_CODE_ACCESS_COARSE_LOCATION = 1001;
 	private WifiDirectBroadcastReceiver mReceiver;
 	private IntentFilter mIntentFilter;
-	private Button goToChat;
+	private Button goToChat, nearby_Hospitals;
+
 	private ImageView goToSettings;
 	private TextView goToSettingsText;
 	private TextView setChatNameLabel;
@@ -78,6 +76,15 @@ public class MainActivity extends Activity{
 			//After this point you wait for callback in onRequestPermissionsResult(int, String[], int[]) overriden method
 
 		}
+
+		nearby_Hospitals = findViewById(R.id.nearby);
+		nearby_Hospitals.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this,MainActivityHospital.class);
+				startActivity(intent);
+			}
+		});
         //Init the Channel, Intent filter and Broadcast receiver
         init();
 

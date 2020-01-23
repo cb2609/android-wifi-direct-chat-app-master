@@ -14,7 +14,12 @@
     
     <color name="button_background">#535391</color>
     <color name="button_text">#FFFFFF</color>
-    
+
+
+    <color name="colorPrimary">#201B1A</color>
+    <color name="colorPrimaryDark">#201B1A</color>
+    <color name="colorAccent">#201B1A</color>
+    <color name="titleFont">#201B1A</color>
     <!-- Generic colors -->
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
